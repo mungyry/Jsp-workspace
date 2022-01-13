@@ -9,18 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Hello
- */
-@WebServlet("/hello")
-public class Hello extends HttpServlet {
+
+@WebServlet("/urlpara")
+public class URLParameters extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String user = request.getParameter("user");
+		String id = request.getParameter("id");
+		
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
-		out.println("<b>Hello!</b>");		
+		out.println("user parameter : " + user);	
+		out.println("id parameter : " + id);
 		out.println("</html>");
 	}
 
