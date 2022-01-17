@@ -28,7 +28,7 @@ public class Connect extends HttpServlet {
 			//0. 드라이버 로딩 (생략가능)
 			Class.forName("com.mysql.jdbc.Driver");
 			//1. DB연결
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webshop?useSSL=false", "root", "root");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webshop?useSSL=false", "root", "1234");
 		} catch (SQLException e) {
 			out.println("DB에 연결 실패");
 			return;
