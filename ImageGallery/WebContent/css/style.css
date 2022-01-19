@@ -1,4 +1,4 @@
-body, html { 
+body, html {
 	height: 100%
 }
 
@@ -17,14 +17,14 @@ body, html {
 	text-align: left;
 }
 
-.content {  
-	display: flex; 
+.content {
+	display: flex;
 	justify-content: center;
 	margin: 0 auto;
-/*	text-align: center; */
+	/*text-align: center;*/
 }
 
-.container{
+.container {
 	width: 60%;
 	height: 70%;
 	margin: 0 auto;
@@ -37,12 +37,12 @@ body, html {
 }
 
 .rating {
-	font-size:1.25em;
-	color:coral;
-	font-weight: bold;	
+	font-size: 1.25em;
+	color: coral;
+	font-weight: bold;
 }
 
-h1{
+h1 {
 	margin-bottom: 0;
 }
 
