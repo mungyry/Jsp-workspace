@@ -11,7 +11,7 @@ import todoApp.utils.JDBCUtils;
 public class UserDao {
 	// 유저 입력 => DB에 유저데이터를 입력
 	public int registerUser(User user) { // 결과가 성공이면 1리턴 아니면 0이하
-		String INSERT_USER_SQL = "insert into users(firstName, lastName, userName, password)" + "values('?','?','?','?')";
+		String INSERT_USER_SQL = "insert into users(firstName, lastName, userName, password)" + "values(?,?,?,?)";
 				
 		int result = 0;	
 		
@@ -26,6 +26,7 @@ public class UserDao {
 			result = pstmt.executeUpdate(); // 결과가 없는 업데이트, 삭제, 입력 등은 쿼리 업데이트 한줄의 갯수가 리턴됨
 			
 		} catch (SQLException e) {
+			e.printStackTrace();
 			System.out.println("SQL 입력 에러");
 		}
 		

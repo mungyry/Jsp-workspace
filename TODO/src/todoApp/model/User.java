@@ -8,6 +8,7 @@ public class User {
 	
 	public User() {} // 기본 생성자는 자바 빈용으로 필요
 	
+	// 유저 생성자
 	public User(String firstName, String lastName, String userName, String password) {
 		super();
 		this.firstName = firstName;

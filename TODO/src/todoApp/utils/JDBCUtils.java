@@ -13,6 +13,10 @@ public class JDBCUtils {
     private static String jdbcUsername = "root";
     private static String jdbcPassword = "root";
 
+//    public static void main(String[] args) {
+//		Connection conn = getConnection();
+//	}    
+    
     public static Connection getConnection() {
     	
     	Connection conn = null;
@@ -22,11 +26,14 @@ public class JDBCUtils {
     		conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 		} catch (ClassNotFoundException e) {
 			System.out.println("드라이버클래스 못찾음");
+			return null;
 		} catch (SQLException e) {
 			System.out.println("SQL문 에러");
+			return null;
 		}
     	   	
     	// DB 연결 성공
+    	System.out.println("연결성공");
     	return conn; // DB에 연결하여 커넥션을 받아옴
     }
 
