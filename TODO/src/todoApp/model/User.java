@@ -16,7 +16,7 @@ public class User {
 		this.userName = userName;
 		this.password = password;
 	}
-	
+	// set/get 메소드를 자동완성
 	public String getFirstName() {
 		return firstName;
 	}
