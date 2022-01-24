@@ -26,11 +26,8 @@ public class LoginController extends HttpServlet {
 	}
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		session.setAttribute("user", "");   //공백
-		session.setAttribute("message", "");	
-		//로그인 페이지로 이동
-		response.sendRedirect("login/login.jsp"); //로그인폴더안의 로그인jsp페이지로 이동
+		RequestDispatcher dispatcher = request.getRequestDispatcher("login/login.jsp");
+		dispatcher.forward(request, response);	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,15 +42,18 @@ public class LoginController extends HttpServlet {
 		
 		if( loginDao.validate(loginBean) ) { //계정 있음 로그인 됨 => 할일 페이지로 forward
 			System.out.println("로그인 성공!");
+			HttpSession session = request.getSession();
+			session.setAttribute("username", username); //로그인 한 유저네임을 세션에 저장
 			RequestDispatcher dispatcher = request.getRequestDispatcher("todo/todo-list.jsp");
 			dispatcher.forward(request, response);			
 		} 
 		else { // 계정 없음 로그인 실패
 			System.out.println("로그인 실패!");
-			HttpSession session = request.getSession();
-			session.setAttribute("user", username);   //유저네임은 다시 보냄
-			session.setAttribute("message", "로그인 실패!");
-			response.sendRedirect("login/login.jsp"); //모든 입력 데이터가 사라짐(페이지 새로열기)
+			request.setAttribute("user", username);   //유저네임은 다시 보냄
+			request.setAttribute("message", "로그인 실패!");
+			// 로그인 실패 내용을 포워드로 다시 로그인 페이지에 보여주기
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login/login.jsp");
+			dispatcher.forward(request, response);				
 		}
 		
 	}
