@@ -58,7 +58,7 @@ public class TodoController extends HttpServlet {
 			break;
 		default:	
 			HttpSession session = request.getSession();
-			session.invalidate(); // 로그인 정보를 모두 삭제
+			session.invalidate(); // 로그인 정보를 모두 삭제 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login/login.jsp"); //요청주소가 기본 또는 잘못되었을 경우 로그인 페이지로 이동
 			dispatcher.forward(request, response);	
 		} //스위치 문 끝
