@@ -63,7 +63,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
     <!-- 네브바 끝 -->
     <!-- 본문 -->
-    <div class="container">
+    <div class="container mt-5">
       <h3 class="text-center">할일 목록들</h3>
       <hr />
       <div class="container text-left">
@@ -89,7 +89,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <tr>
               <td><c:out value="${todo.title}" /></td>
               <td><c:out value="${todo.targetDate}" /></td>
-              <td><c:out value="${todo.status}" /></td>
+              <td class="status"><c:out value="${todo.status}" /></td>
 
               <td>
                 <a
@@ -99,7 +99,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 >
                 <a
                   href="<%=request.getContextPath()%>/todos?action=delete&id=<c:out value='${todo.id}'/>"
-                  onclick="if(!confirm('정말로 삭제하곘습니까?')) return false"
+                  onclick="if(!confirm('정말로 삭제하겠습니까?')) return false"
                   class="btn btn-danger btn-sm"
                   >삭제</a
                 >
@@ -108,10 +108,17 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           </c:forEach>
         </tbody>
       </table>
+      <div class="row mt-5">
+        <div class="col-4 mx-auto">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
     </div>
     <!-- 본문 끝 -->
     <jsp:include page="../common/footer.jsp" />
 
     <script src="<%=request.getContextPath() %>/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="<%=request.getContextPath() %>/js/todo.js"></script>
   </body>
 </html>
