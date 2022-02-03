@@ -1,13 +1,11 @@
 package model;
 
 public class Contact {
-	
-	// DB의 Contacts 테이블과 열의 이름이 같음
+	//DB의 Contacts 테이블과 열의 이름이 같음
 	private int id;
 	private String name;
 	private String email;
 	private String phone;
-	
 	
 	public int getId() {
 		return id;
@@ -38,6 +36,5 @@ public class Contact {
 	public String toString() {
 		return "Contact [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + "]";
 	}
-	
-	
+		
 }
