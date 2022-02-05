@@ -56,7 +56,7 @@
 	                    <span aria-hidden="true">&times;</span>
 	                </button>
 	            </div>
-	            <form autocomplete="off" method="post">
+	            <form id ="add-update" autocomplete="off" >
 		            <div class="modal-body">
 	                	<div class="form-group">
 		                    <label for="name">name</label>
@@ -74,7 +74,7 @@
 		                </div>
 		            </div>
 		            <div class="modal-footer">
-		            	<button type="submit" class="btn btn-success ">저장</button>
+		            	<button  type="submit" class="btn btn-success ">저장</button>
 		                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
 		            </div>
 	            </form>
